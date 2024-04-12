@@ -1,7 +1,8 @@
+import Chai from "./Myname"
 function App() {
 
   return (
-      <h1>Hello vishal!</h1>
+      <Chai />
   )
 }
 
