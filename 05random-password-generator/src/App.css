@@ -1,0 +1,25 @@
+/* App.css */
+
+.copy-button {
+  outline: none; /* Remove outline on focus */
+  background-color: #007bff; /* Blue button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Transition for color changes */
+}
+
+.copy-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.copy-button:active {
+  background-color: #003d7a; /* Even darker blue when clicked */
+}
+
+.copy-button:focus {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add a subtle focus outline */
+}
