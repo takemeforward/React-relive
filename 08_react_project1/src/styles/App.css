@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 3rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+}
+
+nav>a {
+    font: 600 1.5rem cursive;
+    text-decoration: none;
+    color: rgb(37, 213, 205);
+}
