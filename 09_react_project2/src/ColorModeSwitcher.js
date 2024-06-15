@@ -12,7 +12,7 @@ export const ColorModeSwitcher = props => {
       pos={'fixed'}
       top={4}
       right={4}
-
+      zIndex={10}
       variant="ghost"
       color="current"
       onClick={toggleColorMode}
