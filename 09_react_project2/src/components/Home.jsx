@@ -56,19 +56,19 @@ const MyCarousel = () => {
             showArrows={false}
             showStatus={false}
         >
-            <Box w={'full'} h={'90vh'}>
+            <Box w={'full'} h={'full'} objectFit={'cover'}>
                 <img src={img1} />
                 <Heading bgColor={'whiteAlpha.600'} color={'black'} {...headingOptions}>Watch the future.</Heading>
             </Box>
-            <Box w={'full'} h={'90vh'}>
+            <Box w={'full'} h={'full'} objectFit={'cover'}>
                 <img src={img2} />
                 <Heading bgColor={'whiteAlpha.600'} color={'black'} {...headingOptions}>Future is gaming.</Heading>
             </Box>
-            <Box w={'full'} h={'90vh'}>
+            <Box w={'full'} h={'full'} objectFit={'cover'}>
                 <img src={img3} />
                 <Heading bgColor={'whiteAlpha.600'} color={'black'} {...headingOptions}>Gaming on console.</Heading>
             </Box>
-            <Box w={'full'} h={'90vh'}>
+            <Box w={'full'} h={'full'} objectFit={'cover'}>
                 <img src={img4} />
                 <Heading bgColor={'whiteAlpha.600'} color={'black'} {...headingOptions}>Night life is cool.</Heading>
             </Box>
