@@ -1,15 +1,36 @@
-import React from 'react'
-import Product from './Product'
+import React, { useEffect, useState } from 'react'
+import Coin from '../Coin';
+import Loader from './Loader';
+import axios from 'axios'
 export default function Home() {
-    const arr = [1, 2, 3, 4]
-    const products = arr.map((p) => {
-        return (
-            <Product key={p} value={p} />
-        )
+    const [coinData, setCoinData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const fetchAllCoins = async () => {
+            const { data } = await axios.get(
+                'https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&per_page=520'
+            );
+            console.log(data);
+            setCoinData(data);
+            setLoading(false);
+        }
+        fetchAllCoins();
+
     })
+
     return (
-        <div>
-            {products}
+        <div className='container'>
+            {
+                loading ? <Loader /> : coinData.map((i) => (
+                    <Coin name={i.name}
+                        symbol={i.symbol}
+                        imgSrc={i.image}
+                        price={i.current_price}
+                        key={i.id} />
+                ))
+            }
         </div>
     )
 }
+
+
