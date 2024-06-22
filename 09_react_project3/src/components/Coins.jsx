@@ -11,7 +11,9 @@ const Coins = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [page, setPage] = useState(1);
-    const [currency, setCurrency] = useState('inr')
+    const [currency, setCurrency] = useState('inr');
+
+    const currencySymbol = currency === 'inr' ? '₹ ' : currency === 'usd' ? '$ ' : currency === 'eur' ? '€ ' : 'NA';
     useEffect(() => {
 
         const fetchCoins = async () => {
@@ -20,12 +22,11 @@ const Coins = () => {
                 setCoins(data);
             } catch (error) {
                 setError(true);
-                console.log(error);
             }
             setLoading(false)
         }
         fetchCoins();
-    }, [currency, page])
+    }, [currency, page]);
 
     const changePage = (p) => {
         if (p > 0) {
@@ -42,11 +43,14 @@ const Coins = () => {
     };
 
     const handlePrevClick = () => {
-        changePage(page - 1);
+        if (page > 1)
+            changePage(page - 1);
     };
 
     const handleNextClick = () => {
-        changePage(page + 1);
+        if (page < 132)
+            changePage(page + 1);
+
     };
     if (error) {
         return <Error message={"Error while fetching Coins."} />
@@ -57,10 +61,10 @@ const Coins = () => {
                 loading ? <Loader /> : <>
 
                     <HStack >
-                        <RadioGroup gap={'6rem'} value={currency} onChange={setCurrency}>
-                            <Radio value={'inr'}>INR</Radio>
-                            <Radio value={'usd'}>USD</Radio>
-                            <Radio value={'eur'}>EUR</Radio>
+                        <RadioGroup value={currency} onChange={setCurrency}>
+                            <Radio m={'4'} value={'inr'}>INR</Radio>
+                            <Radio m={'4'} value={'usd'}>USD</Radio>
+                            <Radio m={'4'} value={'eur'}>EUR</Radio>
                         </RadioGroup>
                     </HStack>
                     <HStack wrap={'wrap'}>
@@ -73,6 +77,7 @@ const Coins = () => {
                                     img={item.image}
                                     symbol={item.symbol}
                                     price={item.current_price}
+                                    currencySymbol={currencySymbol}
                                 />
                             ))
                         }

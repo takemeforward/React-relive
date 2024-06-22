@@ -1,13 +1,24 @@
 import React from 'react'
-import { Skeleton, HStack } from '@chakra-ui/react'
+import { Spinner, VStack } from '@chakra-ui/react'
 const Loader = () => {
-    const skeletonArray = Array.from({ length: 15 }, (v, i) => i);
     return (
-        <HStack wrap={'wrap'}>
-            {skeletonArray.map((index) => (
-                <Skeleton key={index} h={'52'} w={['80', '52']} m={'4'} shadow={'lg'} borderRadius={'lg'} />
-            ))}
-        </HStack>
+        <VStack
+            display={'flex'}
+            h={'90vh'}
+            w={'90vw'}
+            justifyContent={'center'}
+            alignItems={'center'}
+        >
+            <Spinner
+                thickness="4px"
+                speed="0.85s"
+                emptyColor="whiteAlpha.700"
+                color="blackAlpha.900"
+                size="xl"
+                transform="scale(2)"
+            />
+        </VStack>
+
 
 
 

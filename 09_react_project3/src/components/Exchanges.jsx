@@ -14,13 +14,10 @@ const Exchanges = () => {
             try {
                 const { data } = await axios.get(`${server}/exchanges`)
                 setExchanges(data);
-                console.log(data);
-                setLoading(false)
             } catch (error) {
                 setError(true);
-                setLoading(false);
-                console.log(error);
             }
+            setLoading(false)
         }
         fetchExchanges();
     }, [])
@@ -53,7 +50,7 @@ const Exchanges = () => {
 
 const ExchangeCard = ({ name, img, rank, url }) => (
     <a href={url} target={'blank'}>
-        <VStack w={'52'} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
+        <VStack w={['80', '52']} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
             "&:hover": {
                 transform: "scale(1.1)"
             }
