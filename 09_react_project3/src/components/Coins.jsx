@@ -60,14 +60,14 @@ const Coins = () => {
             {
                 loading ? <Loader /> : <>
 
-                    <HStack >
+                    <HStack maxW={'full'}>
                         <RadioGroup value={currency} onChange={setCurrency}>
                             <Radio m={'4'} value={'inr'}>INR</Radio>
                             <Radio m={'4'} value={'usd'}>USD</Radio>
                             <Radio m={'4'} value={'eur'}>EUR</Radio>
                         </RadioGroup>
                     </HStack>
-                    <HStack wrap={'wrap'}>
+                    <HStack wrap={'wrap'} justifyContent={'center'}>
                         {
                             coins.map((item) => (
                                 <CoinsCard
@@ -82,7 +82,7 @@ const Coins = () => {
                             ))
                         }
                     </HStack>
-                    <HStack w={'full'} textAlign={'center'} m={'8'} justifyContent={'center'}>
+                    <HStack maxW={'full'} textAlign={'center'} m={'8'} justifyContent={'center'}>
                         <Button onClick={handlePrevClick}>Prev</Button>
                         <Input textAlign={'center'} p={'0'} w={'6'} type='text' value={page} onChange={handleInputChange} onBlur={handleInputChange} />
                         <Button onClick={handleNextClick}>Next</Button>
@@ -95,7 +95,7 @@ const Coins = () => {
 
 const CoinsCard = ({ id, name, img, symbol, price, currencySymbol = '₹ ' }) => (
     <Link to={`/coin/${id}`}>
-        <VStack w={['80', '52']} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
+        <VStack w={['80', '60']} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
             "&:hover": {
                 transform: "scale(1.1)"
             }

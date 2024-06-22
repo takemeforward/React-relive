@@ -29,7 +29,7 @@ const Exchanges = () => {
         <Container maxW={'container.xl'}>
             {
                 loading ? <Loader /> : <>
-                    <HStack wrap={'wrap'}>
+                    <HStack wrap={'wrap'} justifyContent={'center'}>
                         {
                             exchanges.map((item) => (
                                 <ExchangeCard
@@ -50,7 +50,7 @@ const Exchanges = () => {
 
 const ExchangeCard = ({ name, img, rank, url }) => (
     <a href={url} target={'blank'}>
-        <VStack w={['80', '52']} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
+        <VStack w={['80', '60']} shadow={'lg'} borderRadius={'lg'} transition={'all 0.5'} m={'4'} p={'8'} css={{
             "&:hover": {
                 transform: "scale(1.1)"
             }
